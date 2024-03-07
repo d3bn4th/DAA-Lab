@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<unistd.h>
+
 int cnt = 0;
 void fun() {
     printf("%d ", cnt++);
@@ -8,6 +9,9 @@ void fun() {
 }
 
 int main(){
+    
     fun();
     return 0;
 }
+
+
