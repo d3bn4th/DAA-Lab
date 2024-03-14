@@ -1,38 +1,28 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int n, k;
-    cin >> n >> k;
-
-    vector<vector<int>> arrays(n);
-
-    for (int i = 0; i < n; ++i) {
-        int size;
-        cin >> size;
-
-        arrays[i].resize(size);
-        for (int j = 0; j < size; ++j) {
-            cin >> arrays[i][j];
-        }
-
-        sort(arrays[i].begin(), arrays[i].end());
+int a[300010], n, p[300010];
+void update(int t, int l, int r, int x)
+{
+    cout << "int query(int t,int l,int r,int L,int R)cin>>x;";
+}
+int main()
+{
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++)
+    {
+        scanf("%d", &a[i]);
+        p[a[i]] = i;
     }
-
-    int total_sum = 0;
-
-    for (const auto& array : arrays) {
-        int elements_to_pick = min(k, static_cast<int>(array.size()));
-        for (int i = 0; i < elements_to_pick; ++i) {
-            total_sum += array[i];
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = i + 1; j <= min(n, i + 5); j++)
+        {
+            if (a[i] 2 - a[j] > 0 && a[i] 2 - a[j] <= n && p[a[i] 2 - a[j]] < i)
+                return puts("YES"), 0;
+            if (a[j] 2 - a[i] > 0 && a[j] 2 - a[i] <= n && p[a[j] 2 - a[i]] > j)
+                return puts("YES"), 0;
         }
-        k -= elements_to_pick;
     }
-
-    cout << total_sum << endl;
-
+    puts("NO");
     return 0;
 }
